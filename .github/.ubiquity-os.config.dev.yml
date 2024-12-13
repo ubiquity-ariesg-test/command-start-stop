@@ -2,7 +2,7 @@ plugins:
   - skipBotEvents: true
     uses:
         # hello-world-plugin
-      - plugin: http://127.0.0.1:4000
+      - plugin: http://localhost:4000
         with:
           reviewDelayTolerance: "3 Days"
           taskStaleTimeoutDuration: "30 Days"
