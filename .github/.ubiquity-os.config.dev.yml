@@ -3,19 +3,17 @@ plugins:
     uses:
         # hello-world-plugin
       - plugin: http://127.0.0.1:4000
-        name: start-stop
-        id: start-stop-command
-        description: "Allows a user to start/stop a task without negative XP impact"
-        command: "\/start|\/stop"
-        example: "/start" # or "/stop"
         with:
           reviewDelayTolerance: "3 Days"
           taskStaleTimeoutDuration: "30 Days"
-          maxConcurrentTasks: # Default concurrent task limits per role.
-            member: 5
-            contributor: 3
-          startRequiresWallet: true # default is true
-          assignedIssueScope: "org" # or "org" or "network". Default is org
+          startRequiresWallet: true
+          maxConcurrentTasks:
+            member: 2
+            contributor: 2
           emptyWalletText: "Please set your wallet address with the /wallet command first and try again."
-          rolesWithReviewAuthority: ["MEMBER", "OWNER"]
-          requiredLabelsToStart: ["Priority: 5 (Emergency)"]
+          rolesWithReviewAuthority:
+            - "COLLABORATOR"
+            - "OWNER"
+            - "MEMBER"
+            - "ADMIN"
+          requiredLabelsToStart: ["Priority: 3 (High)", "Priority: 4 (Urgent)", "Priority: 5 (Emergency)"]
